@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DYLO Studio</title>
+<meta name="description" content="DYLO Studio builds business automation, desktop software and Unreal Engine games and assets.">
+<link rel="canonical" href="https://dylostudio.com/">
+<meta property="og:title" content="DYLO Studio">
+<meta property="og:description" content="Business automation, software and games.">
+<meta property="og:url" content="https://dylostudio.com/">
+<style>
+:root{--bg:#0e0f12;--card:#16181d;--line:#262932;--text:#e8e9ec;--muted:#9a9ea8;--accent:#6c8cff;color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scrollbar-gutter:stable;scrollbar-color:#3a3d46 var(--bg)}
+body{background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-wrap:anywhere}
+header,main,footer{padding:0 32px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:.08em;font-size:20px}
+nav{display:flex;gap:16px}
+a{color:var(--accent);text-decoration:none}
+nav a{color:var(--muted)}
+nav a:hover{color:var(--text)}
+.hero{padding:64px 0 48px}
+h1{font-size:40px;line-height:1.15;margin-bottom:12px}
+.hero p{color:var(--muted);font-size:18px}
+.btn{display:inline-block;margin-top:24px;padding:12px 16px;border-radius:8px;background:var(--accent);color:#fff;font-weight:600}
+section{padding:32px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:16px}
+.card h3{font-size:16px;margin-bottom:4px}
+.card p{color:var(--muted);font-size:14px}
+footer{padding-top:32px;padding-bottom:32px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media (max-width:600px){header,main,footer{padding-left:16px;padding-right:16px}h1{font-size:30px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">DYLO</div>
+  <nav><a href="#automation">Automation</a><a href="#games">Games</a><a href="#contact">Contact</a></nav>
+</header>
+<main>
+  <div class="hero">
+    <h1>Automation, software and games.</h1>
+    <p>We automate the repetitive work in your business systems.</p>
+    <a class="btn" href="mailto:contact@dylostudio.com">Contact</a>
+  </div>
+  <section id="automation">
+    <h2>Automation</h2>
+    <div class="grid">
+      <div class="card"><h3>SAP automation</h3><p>Invoice entry, validation and reporting in SAP GUI.</p></div>
+      <div class="card"><h3>Laserfiche integration</h3><p>Forms and documents flowing into your ERP.</p></div>
+      <div class="card"><h3>Accounts payable</h3><p>Fewer keystrokes, fewer errors, balanced every time.</p></div>
+      <div class="card"><h3>Desktop tools</h3><p>One launcher for your team's workflows.</p></div>
+    </div>
+  </section>
+  <section id="games">
+    <h2>Games</h2>
+    <div class="grid">
+      <div class="card"><h3>Unreal Engine</h3><p>Games, plugins and assets for developers.</p></div>
+      <div class="card"><h3>Audio</h3><p>Music and sound design.</p></div>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p><a href="mailto:contact@dylostudio.com">contact@dylostudio.com</a></p>
+  </section>
+</main>
+<footer>DYLO Studio is a brand of DYLO Gaming LLC.</footer>
+</body>
+</html>
