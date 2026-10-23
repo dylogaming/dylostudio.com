@@ -46,7 +46,7 @@ a{color:inherit;text-decoration:none}
 /* hero */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 #field{position:absolute;inset:0;width:100%;height:100%}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(7,8,11,.2),rgba(7,8,11,.85) 70%),linear-gradient(to bottom,transparent 70%,var(--bg));pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--bg),transparent 12%,transparent 85%,var(--bg));pointer-events:none}
 .hero .inner{position:relative;z-index:1;padding:120px 32px 96px}
 .hero h1{font-size:clamp(40px,6vw,72px);margin-bottom:20px}
 .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -188,14 +188,21 @@ section{padding:112px 0;border-top:1px solid var(--line)}
     c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
     pts=[];const gap=W<640?16:13;
     for(let i=0;i<W/gap+2;i++)for(let j=0;j<22;j++)pts.push([i*gap,j]);
+    const hr=c.getBoundingClientRect(),r=[...document.querySelectorAll('.hero .inner>*')].map(e=>e.getBoundingClientRect());
+    tb=[Math.min(...r.map(b=>b.left))-hr.left,Math.min(...r.map(b=>b.top))-hr.top,Math.max(...r.map(b=>b.right))-hr.left,Math.max(...r.map(b=>b.bottom))-hr.top];
+  }
+  let tb=[0,0,0,0];
+  function clear(px,py){
+    const dx=Math.max(tb[0]-px,0,px-tb[2]),dy=Math.max(tb[1]-py,0,py-tb[3]),d=Math.hypot(dx,dy*1.6)/90;
+    return d>=1?1:.04+.96*d*d*(3-2*d);
   }
   function draw(t){
     x.clearRect(0,0,W,H);
     for(const [px,j] of pts){
       const u=px/W,ph=t*(still?.00015:.0005);
-      const y=H*.55+Math.sin(u*5+ph+j*.35)*H*.12+Math.sin(u*11-ph*1.6+j*.2)*H*.05+(j-11)*H*.018*(1+Math.sin(u*3+ph));
+      const y=H*.5+Math.sin(u*5+ph+j*.35)*H*.16+Math.sin(u*11-ph*1.6+j*.2)*H*.06+(j-11)*H*.036*(1+Math.sin(u*3+ph));
       const z=.35+.65*(.5+.5*Math.sin(u*7+ph*1.3+j*.5));
-      x.globalAlpha=z*.75;x.fillStyle=j%5?'#cfd6ff':'#38e1c6';
+      x.globalAlpha=z*.75*clear(px,y);x.fillStyle=j%5?'#cfd6ff':'#38e1c6';
       x.fillRect(px+Math.sin(j+ph)*6,y,1.4*z+.4,1.4*z+.4);
     }
     x.globalAlpha=1;
