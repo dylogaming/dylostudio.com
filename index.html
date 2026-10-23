@@ -88,14 +88,13 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .band .box{border-radius:20px;padding:56px;background:radial-gradient(ellipse at 100% 0,rgba(124,156,255,.18),transparent 60%),var(--card);border:1px solid var(--line2);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .band h2{font-size:clamp(28px,3.5vw,40px)}
 
-footer{border-top:1px solid var(--line);padding:32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:14px}
 
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 
 @media (max-width:1000px){.split{grid-template-columns:1fr}}
 @media (max-width:640px){
-  .wrap,.nav,.hero .inner,footer{padding-left:16px;padding-right:16px}
+  .wrap,.nav,.hero .inner{padding-left:16px;padding-right:16px}
   .nav .links a:not(.btn){display:none}
   section,.band{padding:72px 0}
   .steps{grid-template-columns:1fr}
@@ -175,9 +174,6 @@ footer{border-top:1px solid var(--line);padding:32px;display:flex;align-items:ce
   </div>
 </main>
 
-<footer>
-  <span>&copy; 2026 DYLO Gaming LLC</span>
-</footer>
 
 <script>
 (()=>{
