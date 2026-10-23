@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DYLO Studio | Business Automation and Games</title>
-<meta name="description" content="DYLO Studio automates SAP, Laserfiche and accounts payable work, and builds Unreal Engine games and assets.">
+<title>DYLO Studio | SAP and AP Automation</title>
+<meta name="description" content="DYLO Studio automates SAP, Laserfiche and accounts payable work.">
 <link rel="canonical" href="https://dylostudio.com/">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <meta property="og:title" content="DYLO Studio">
-<meta property="og:description" content="Business automation, software and games.">
+<meta property="og:description" content="SAP, Laserfiche and accounts payable automation.">
 <meta property="og:url" content="https://dylostudio.com/">
 <meta property="og:image" content="https://dylostudio.com/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@ body{background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,"Segoe
 h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.02em;line-height:1.1}
 a{color:inherit;text-decoration:none}
 .wrap{padding:0 32px}
-.eyebrow{display:inline-block;font:600 12px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:16px}
+.eyebrow{display:block;font:600 12px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);margin-bottom:16px}
 
 /* nav */
 .nav{position:fixed;inset:0 0 auto 0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px;padding:0 32px;background:rgba(7,8,11,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -61,13 +61,13 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .head p{color:var(--muted);font-size:18px}
 
 /* automation split */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .run{background:linear-gradient(180deg,#0f1218,#0b0d12);border:1px solid var(--line2);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(124,156,255,.05)}
 .run .bar{display:flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
 .run .bar i{width:10px;height:10px;border-radius:50%;background:#2a2f3a;display:block}
 .run .bar b{margin-left:8px;font-weight:500;color:var(--text)}
 .run ol{list-style:none;padding:12px 8px}
-.run li{display:grid;grid-template-columns:24px 1fr auto;align-items:center;gap:12px;height:44px;padding:0 12px;border-radius:8px;font-size:15px;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.run li{display:grid;grid-template-columns:24px 1fr;align-items:center;gap:12px;height:44px;padding:0 12px;border-radius:8px;font-size:15px;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
 .run li.on{opacity:1;transform:none}
 .run li .ic{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:rgba(56,225,198,.12);color:var(--ok)}
 .run li .v{font:500 13px/1 ui-monospace,Consolas,monospace;color:var(--muted)}
@@ -76,7 +76,7 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .run .foot{display:flex;justify-content:space-between;padding:14px 20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .run .foot b{color:var(--text);font-weight:600}
 
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px}
 .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;transition:border-color .2s,transform .2s}
 .card:hover{border-color:var(--line2);transform:translateY(-2px)}
 .card svg{width:28px;height:28px;color:var(--accent);margin-bottom:16px;display:block}
@@ -90,19 +90,6 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .step h3{font-size:20px;margin-bottom:8px}
 .step p{color:var(--muted);font-size:15px}
 
-/* games */
-.games{display:grid;grid-template-columns:1.4fr 1fr;gap:16px}
-.tile{position:relative;min-height:280px;border-radius:16px;border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--card)}
-.tile .glow{position:absolute;inset:0;opacity:.9;pointer-events:none}
-.tile.ue .glow{background:radial-gradient(circle at 80% 10%,rgba(124,156,255,.35),transparent 55%),radial-gradient(circle at 10% 100%,rgba(56,225,198,.15),transparent 50%)}
-.tile.au .glow{background:radial-gradient(circle at 90% 90%,rgba(56,225,198,.3),transparent 55%)}
-.tile > *{position:relative}
-.tile h3{font-size:26px;margin-bottom:8px}
-.tile p{color:var(--muted);max-width:420px}
-.tile .bars{position:absolute;top:32px;right:32px;display:flex;align-items:flex-end;gap:5px;height:64px}
-.tile .bars span{width:6px;border-radius:3px;background:var(--accent2);opacity:.7;animation:eq 1.2s ease-in-out infinite alternate}
-@keyframes eq{from{height:12%}to{height:100%}}
-
 /* cta band */
 .band{border-top:1px solid var(--line);padding:112px 0;text-align:left}
 .band .box{border-radius:20px;padding:56px;background:radial-gradient(ellipse at 100% 0,rgba(124,156,255,.18),transparent 60%),var(--card);border:1px solid var(--line2);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
@@ -114,7 +101,7 @@ footer img{height:16px;opacity:.7;display:block}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 
-@media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.games{grid-template-columns:1fr}}
+@media (max-width:1000px){.split{grid-template-columns:1fr}}
 @media (max-width:640px){
   .wrap,.nav,.hero .inner,footer{padding-left:16px;padding-right:16px}
   .nav .links a:not(.btn){display:none}
@@ -131,9 +118,8 @@ footer img{height:16px;opacity:.7;display:block}
 <nav class="nav">
   <a href="#top" aria-label="DYLO Studio"><img src="assets/dylo-mark.png" alt="DYLO"></a>
   <div class="links">
-    <a href="#automation">Automation</a>
+    <a href="#automation">Services</a>
     <a href="#process">Process</a>
-    <a href="#games">Games</a>
     <a class="btn btn-primary" href="mailto:contact@dylostudio.com">Contact</a>
   </div>
 </nav>
@@ -143,7 +129,7 @@ footer img{height:16px;opacity:.7;display:block}
   <div class="inner">
     <img class="mark" src="assets/dylo-mark.png" alt="DYLO">
     <h1>Software that does <span>the busywork.</span></h1>
-    <p>Automation for SAP, Laserfiche and accounts payable. Games and assets for Unreal Engine.</p>
+    <p>Automation for SAP, Laserfiche and accounts payable.</p>
     <div class="cta">
       <a class="btn btn-primary" href="mailto:contact@dylostudio.com">Start a project</a>
       <a class="btn btn-ghost" href="#automation">See how it works</a>
@@ -160,16 +146,15 @@ footer img{height:16px;opacity:.7;display:block}
           <h2>Invoices entered, checked and balanced. Automatically.</h2>
           <p>Your team's repetitive SAP and document work, done in seconds, with every step verified.</p>
         </div>
-        <div class="run reveal" aria-label="Example automation run">
-          <div class="bar"><i></i><i></i><i></i><b>Invoice run</b></div>
+        <div class="run reveal" aria-label="Capabilities">
+          <div class="bar"><i></i><i></i><i></i><b>Capabilities</b></div>
           <ol id="steps">
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Invoice form read<span class="v">0.8s</span></li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Vendor address verified<span class="v">0.4s</span></li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Entered in SAP<span class="v">3.1s</span></li>
-            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Attachment matched<span class="v">0.6s</span></li>
-            <li class="total"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Balance<span class="v">$0.00</span></li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Laserfiche processing</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>SAP processing</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Reconciliation</li>
+            <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Reporting</li>
+            <li class="total"><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Fully autonomous</li>
           </ol>
-          <div class="foot"><span>Sample run</span><b>Ready to post</b></div>
         </div>
       </div>
 
@@ -189,11 +174,6 @@ footer img{height:16px;opacity:.7;display:block}
           <h3>Accounts payable</h3>
           <p>Fewer keystrokes. Fewer errors. Balanced every time.</p>
         </div>
-        <div class="card reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-          <h3>Desktop tools</h3>
-          <p>One launcher for every team workflow.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -208,19 +188,6 @@ footer img{height:16px;opacity:.7;display:block}
         <div class="step reveal"><h3>Map</h3><p>We walk through the workflow with your team.</p></div>
         <div class="step reveal"><h3>Build</h3><p>Automated and tested against your real cases.</p></div>
         <div class="step reveal"><h3>Run</h3><p>Installed on your systems, with ongoing support.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="games">
-    <div class="wrap">
-      <div class="head reveal">
-        <span class="eyebrow">Games</span>
-        <h2>Games, plugins and sound.</h2>
-      </div>
-      <div class="games">
-        <div class="tile ue reveal"><div class="glow"></div><h3>Unreal Engine</h3><p>Games, plugins and assets for developers.</p></div>
-        <div class="tile au reveal"><div class="glow"></div><div class="bars" aria-hidden="true"><span style="animation-delay:-.2s"></span><span style="animation-delay:-.7s"></span><span style="animation-delay:-.4s"></span><span style="animation-delay:-1s"></span><span style="animation-delay:-.1s"></span><span style="animation-delay:-.6s"></span></div><h3>Audio</h3><p>Music and sound design.</p></div>
       </div>
     </div>
   </section>
@@ -254,14 +221,14 @@ footer img{height:16px;opacity:.7;display:block}
   function draw(t){
     x.clearRect(0,0,W,H);
     for(const [px,j] of pts){
-      const u=px/W,ph=t*.00035;
+      const u=px/W,ph=t*(still?.00015:.0005);
       const y=H*.55+Math.sin(u*5+ph+j*.35)*H*.12+Math.sin(u*11-ph*1.6+j*.2)*H*.05+(j-11)*H*.018*(1+Math.sin(u*3+ph));
       const z=.35+.65*(.5+.5*Math.sin(u*7+ph*1.3+j*.5));
       x.globalAlpha=z*.75;x.fillStyle=j%5?'#cfd6ff':'#38e1c6';
       x.fillRect(px+Math.sin(j+ph)*6,y,1.4*z+.4,1.4*z+.4);
     }
     x.globalAlpha=1;
-    if(!still)requestAnimationFrame(draw);
+    requestAnimationFrame(draw);
   }
   size();addEventListener('resize',size);requestAnimationFrame(draw);
 
