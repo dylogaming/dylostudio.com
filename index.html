@@ -44,12 +44,12 @@ a{color:inherit;text-decoration:none}
 .nav .btn{height:36px;padding:0 14px;font-size:14px}
 
 /* hero */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero{position:relative;display:flex;align-items:center;overflow:hidden}
 #field{position:absolute;inset:0;width:100%;height:100%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--bg),transparent 12%,transparent 85%,var(--bg));pointer-events:none}
 .hero .copy{position:relative;z-index:0}
 .hero .copy::before{content:"";position:absolute;inset:-25% -30%;z-index:-1;background:radial-gradient(closest-side,rgba(7,8,11,.9),rgba(7,8,11,.6) 45%,rgba(7,8,11,0));pointer-events:none}
-.hero .inner{position:relative;z-index:1;width:100%;padding:120px max(32px,calc((100% - 1336px)/2)) 96px;display:grid;grid-template-columns:auto minmax(0,560px);justify-content:space-between;gap:48px 96px;align-items:center}
+.hero .inner{position:relative;z-index:1;width:100%;padding:112px max(32px,calc((100% - 1336px)/2)) 56px;display:grid;grid-template-columns:auto minmax(0,560px);justify-content:space-between;gap:48px 96px;align-items:center}
 .hero h1{font-size:clamp(40px,4.6vw,72px);margin-bottom:20px}
 @media (min-width:1001px){.hero h1{white-space:nowrap}}
 .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -223,13 +223,23 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
 .step{padding:28px 24px;border-radius:14px;border:1px solid var(--line);background:var(--bg2)}
 .step::before{counter-increment:s;content:"0" counter(s);display:block;font:700 14px/1 "Space Grotesk",sans-serif;color:var(--accent2);margin-bottom:20px;letter-spacing:.1em}
-.step h3{font-size:20px;margin-bottom:8px}
-.step p{color:var(--muted);font-size:15px}
+.step h3{font-size:20px;display:flex;align-items:center;justify-content:space-between;gap:12px}
 .step{min-width:0}.step .demo{position:relative;margin-top:20px;border-radius:8px;overflow:hidden}
 .sap .cur{position:absolute;width:14px;height:20px;margin:-2px 0 0 -2px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 20'%3E%3Cpath d='M1 1v15l4-3.5 2.6 6 2.6-1.1-2.6-5.9H13z' fill='%23fff' stroke='%23000' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0/14px 20px no-repeat;transition:transform .08s}
 .sap .cur.dn{transform:scale(.85)}
-.step .tm{display:table;margin:14px auto 0;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font:600 14px/1.4 "Space Grotesk",sans-serif;font-variant-numeric:tabular-nums;transition:color .3s}
+.step .tm{padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font:600 14px/1.4 "Space Grotesk",sans-serif;font-variant-numeric:tabular-nums;transition:color .3s}
 .step .tm.ok{color:var(--accent2)}
+.stg{position:relative;overflow:hidden;background:#161a22}
+.ivw{position:absolute;inset:0;display:grid;place-items:center}
+.lf.inv{background:none;padding:0 16px}.lf.inv .pg1{zoom:1.3}.lf.inv .pg1 .t{line-height:25px}
+.inv .gl{background:rgba(47,140,255,.18);box-shadow:0 0 0 1.5px #2f8cff,0 0 12px rgba(47,140,255,.8);border-radius:2px}
+.vars{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#0f1218;border-top:1px solid var(--line)}
+.vars .v,.demo .vfl{display:flex;flex-direction:column;padding:4px 7px;border-radius:6px;background:#1a1f28;border:1px solid rgba(255,255,255,.1);font:11px/1.3 Consolas,"Courier New",monospace;color:#e8ecf2;white-space:nowrap;opacity:0;transition:border-color .2s,box-shadow .2s,color .3s}
+.demo .vfl{position:absolute;z-index:3;left:0;top:0;opacity:1;pointer-events:none}
+.vars .v i,.demo .vfl i{font:600 9px/1.3 "Space Grotesk",sans-serif;font-style:normal;color:var(--muted)}
+.vars .v.hot{border-color:var(--accent2);box-shadow:0 0 12px var(--accent2)}
+.vars .v.used{color:var(--muted)}
+.demo .gh{position:absolute;z-index:3;transform:translate(-50%,-50%);padding:2px 6px;border-radius:4px;background:var(--accent2);color:#04110c;font:700 11px/1.3 Consolas,monospace;white-space:nowrap;pointer-events:none;opacity:0;box-shadow:0 0 14px var(--accent2)}
 .sap .f.focus{border-color:#346eb5;box-shadow:0 0 0 1px #346eb5}
 
 /* cta band */
@@ -269,7 +279,7 @@ section{padding:112px 0;border-top:1px solid var(--line)}
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="inner">
     <div class="copy">
-      <h1>Automation <span>services</span></h1>
+      <h1>Workflow <span>optimization</span></h1>
       <p><span class="app sapc on">SAP</span>, <span class="app lfc">Laserfiche</span>, and more</p>
       <div class="cta">
         <a class="btn btn-primary" href="mailto:contact@dylostudio.com">Inquire</a>
@@ -289,9 +299,8 @@ section{padding:112px 0;border-top:1px solid var(--line)}
           <label class="req">Invoice date</label><span class="f" data-v="10/21/2026"></span><label>Reference</label><span class="f" data-v="INV-48213"></span>
           <label>Posting Date</label><span class="f gr" id="pdate"></span><span class="cb r"><i></i>Doc. Currency</span>
           <label class="req">Amount</label><span class="f num" data-v="1,284.50"></span><span class="f" style="width:44px">USD</span><span class="cb"><i class="on"></i>Calculate Tax</span>
-          <label>Tax code</label><span class="f w dd">I0 (A/P Sales Tax, exempt)</span>
-          <label>Text</label><span class="f w" data-v="Office supplies, October"></span>
-          <label>Paymt terms</label><span class="f ro w" data-v="Net 30 days"></span>
+          <label>Tax amount</label><span class="f num" data-v="0.00"></span><span></span><span class="f dd">I0 Exempt</span>
+          <label>Text</label><span class="f w" data-v="OFFICE SUPPLIES, OCTOBER"></span>
         </div>
         <div class="pane side">
           <h4>Vendor</h4>
@@ -309,9 +318,9 @@ section{padding:112px 0;border-top:1px solid var(--line)}
       <div class="items">
         <div class="cap" id="icap">0 Items ( No entry variant selected )</div>
         <div class="ir ih"><span><svg viewBox="0 0 14 14"><rect x="1.5" y="2" width="11" height="10" fill="#fff" stroke="#5a6f86"/><path d="M1.5 5h11M5 2v10" stroke="#5a6f86" stroke-width=".9"/></svg></span><span>D/C</span><span>G/L acct</span><span>Short Text</span><span class="num">Amount in doc.curr.</span><span>Cost center</span></div>
-        <div class="ir"><span class="s"></span><span class="f dd">Debit</span><span class="f" data-v="610100"></span><span class="f" data-v="Toner and paper"></span><span class="f num" data-v="1,184.50"></span><span class="f" data-v="4100"></span></div>
-        <div class="ir"><span class="s"></span><span class="f dd">Debit</span><span class="f" data-v="610200"></span><span class="f" data-v="Delivery"></span><span class="f num" data-v="100.00"></span><span class="f" data-v="4100"></span></div>
-        <div class="ir"><span class="s"></span><span class="dd">Debit</span><span></span><span></span><span></span><span></span></div>
+        <div class="ir"><span class="s"></span><span class="f dd">Debit</span><span class="f" data-v="610100"></span><span class="f" data-v="TONER AND PAPER"></span><span class="f num" data-v="1,184.50"></span><span class="f" data-v="4100"></span></div>
+        <div class="ir"><span class="s"></span><span class="f dd">Debit</span><span class="f" data-v="610200"></span><span class="f" data-v="DELIVERY"></span><span class="f num" data-v="100.00"></span><span class="f" data-v="4100"></span></div>
+        <div class="ir"><span class="s"></span><span class="f dd">Debit</span><span></span><span></span><span></span><span></span></div>
       </div>
       <div class="gtb"><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><circle cx="7" cy="7" r="3" fill="none" stroke="#3d6fa8" stroke-width="1.4"/><path d="M9.2 9.2l3 3" stroke="#3d6fa8" stroke-width="1.6"/></svg><span class="sep"></span><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><path d="M4 5h8M4 8h8M4 11h5" stroke="#5a6f86"/><path d="M11 10v4M9 12h4" stroke="#3fa535" stroke-width="1.5"/></svg><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><path d="M4 5h8M4 8h8M4 11h5" stroke="#5a6f86"/><path d="M9.5 12h4" stroke="#e0362b" stroke-width="1.5"/></svg><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><rect x="4" y="4" width="5" height="6" fill="none" stroke="#5a6f86"/><rect x="7" y="6.5" width="5" height="6" fill="#fff" stroke="#3d6fa8"/></svg><span class="sep"></span><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><path d="M4 4.5h8M4 8h8M4 11.5h8" stroke="#5a6f86"/><path d="M12 10.5v4" stroke="#3fa535" stroke-width="1.5"/></svg><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><path d="M4 4.5h8M4 8h8M4 11.5h8" stroke="#5a6f86"/><path d="M10 12.5h4" stroke="#e0362b" stroke-width="1.5"/></svg><span class="sep"></span><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><path d="M5 4v8M3.5 10.5L5 12l1.5-1.5M9 5h4M9 8h3M9 11h2" fill="none" stroke="#3d6fa8" stroke-width="1.2"/></svg><svg viewBox="0 0 16 16"><rect x="1.5" y="1.5" width="13" height="13" fill="#fff" stroke="#8a96a3"/><path d="M3.5 4h9L9 8v4l-2 1V8z" fill="#b9d3ee" stroke="#3d6fa8" stroke-width=".9"/></svg></div>
       <div class="st"><span id="sapst"><svg viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" fill="#3fa535"/><path d="M4.2 7.2l2 2 3.8-4.2" fill="none" stroke="#fff" stroke-width="1.6"/></svg>Document 5105600123 1000 was parked</span></div>
@@ -382,12 +391,12 @@ section{padding:112px 0;border-top:1px solid var(--line)}
       <div class="head reveal">
         <span class="eyebrow">Process</span>
         <h2>Any constraint, any setup</h2>
-        <p>Faster workflows and fewer errors, whatever the restrictions</p>
+        <p>Scripting, AI or Power Automate, whatever the restrictions</p>
       </div>
       <div class="steps">
-        <div class="step reveal"><h3>Full access</h3><p>Every field filled instantly</p><div class="demo" data-mode="fast" aria-hidden="true"></div></div>
-        <div class="step reveal"><h3>Limited access</h3><p>Typed in, field by field</p><div class="demo" data-mode="type" aria-hidden="true"></div></div>
-        <div class="step reveal"><h3>No scripting</h3><p>Click, paste, park</p><div class="demo" data-mode="paste" aria-hidden="true"></div></div>
+        <div class="step reveal"><h3>Full access</h3><div class="demo" data-mode="fast" aria-hidden="true"></div></div>
+        <div class="step reveal"><h3>Limited access</h3><div class="demo" data-mode="qtype" aria-hidden="true"></div></div>
+        <div class="step reveal"><h3>No scripting</h3><div class="demo" data-mode="paste" aria-hidden="true"></div></div>
       </div>
     </div>
   </section>
@@ -460,17 +469,17 @@ section{padding:112px 0;border-top:1px solid var(--line)}
     const fs=$$('.f[data-v]'),vf=$$('.side .f[data-v]'),bal=$('.bal .f'),lamp=$('.lamp'),st=$('.st span'),cap=$('.items .cap'),park=$('.pk'),rows=$$('.ir');
     const mt=[bal,...fs.filter(f=>['1,284.50','1,184.50','100.00'].includes(f.dataset.v))];
     const main=order(fs.filter(f=>!vf.includes(f))),top=main.filter(f=>!f.closest('.ir')),bot=main.filter(f=>f.closest('.ir'));
-    const T=new Map(),cps=mode=='type'?16:0;let t0,vfT,mtT=1/0,hvT,dnT,pkT,end,cur,path=[],clk=[];
-    if(mode=='type'){
-      let q=900;t0=900;
-      for(const f of main){const e=q+f.dataset.v.length*16;T.set(f,[q,e]);q=e;if(f.dataset.v=='100245'){vfT=q+250;q+=250}q+=60}
-      mtT=q+700;hvT=mtT+1600;dnT=hvT+700;pkT=dnT+220;end=pkT+3000;
+    const T=new Map(),cps=mode=='type'?16:mode=='qtype'?7:0;let vfT,mtT=1/0,hvT,dnT,pkT,end,cur,path=[],clk=[];
+    if(cps){
+      const [lead,gap,vb,m1,m2,m3,m4,m5]=mode=='type'?[900,60,250,700,1600,700,220,3000]:[150,30,120,250,450,250,150,2500];let q=lead;
+      for(const f of main){const e=q+f.dataset.v.length*cps;T.set(f,[q,e]);q=e;if(f.dataset.v=='100245'){vfT=q+vb;q+=vb}q+=gap}
+      mtT=q+m1;hvT=mtT+m2;dnT=hvT+m3;pkT=dnT+m4;end=pkT+m5;
     }else if(mode=='fast'){
-      top.forEach(f=>T.set(f,[250,250]));vfT=250;bot.forEach(f=>T.set(f,[500,500]));t0=250;hvT=750;dnT=900;pkT=1050;end=1800;
+      top.forEach(f=>T.set(f,[250,250]));vfT=250;bot.forEach(f=>T.set(f,[500,500]));hvT=600;dnT=750;pkT=900;end=3400;
     }else{
-      top.forEach(f=>T.set(f,[1000,1000]));t0=300;vfT=1250;bot.forEach(f=>T.set(f,[2000,2000]));hvT=2800;dnT=2950;pkT=3100;end=5200;
+      top.forEach(f=>T.set(f,[1500,1500]));vfT=1700;bot.forEach(f=>T.set(f,[2950,2950]));hvT=3900;dnT=4200;pkT=4350;end=6800;
       cur=document.createElement('i');cur.className='cur';root.append(cur);
-      path=[[0,null],[300,null],[900,top[0]],[1300,top[0]],[1900,bot[0]],[2300,bot[0]],[2800,park]];clk=[[900,top[0]],[1900,bot[0]],[2800,null]];
+      path=[[150,1150,null,top[0]],[1600,2600,top[0],bot[0]],[3050,4050,bot[0],park]];clk=[[1300,top[0]],[2750,bot[0]],[4200,null]];
     }
     const done=(v,t)=>main.some(f=>f.dataset.v==v&&t>=T.get(f)[1]);
     const at=(e,R)=>{if(!e)return[.78,.92];const r=e.getBoundingClientRect();return[(r.left+Math.min(14,r.width/2)-R.left)/R.width,(r.top+r.height/2-R.top)/R.height]};
@@ -485,14 +494,19 @@ section{padding:112px 0;border-top:1px solid var(--line)}
       park.className='pk'+(t>=hvT&&t<pkT?' hv':'')+(t>=dnT&&t<pkT?' dn':'');
       st.classList.toggle('on',t>=pkT);
       if(cur){
-        const R=root.getBoundingClientRect();let i=path.findLastIndex(p=>p[0]<=t);
-        const a=at(path[i][1],R),b=path[i+1]?at(path[i+1][1],R):a,k=path[i+1]?Math.min(1,(t-path[i][0])/(path[i+1][0]-path[i][0])):0,e=k<.5?2*k*k:1-(-2*k+2)**2/2;
-        cur.style.left=(a[0]+(b[0]-a[0])*e)*100+'%';cur.style.top=(a[1]+(b[1]-a[1])*e)*100+'%';
+        const R=root.getBoundingClientRect(),W=R.width,H=R.height,px=e=>{const a=at(e,R);return [a[0]*W,a[1]*H]},s=path.findLast(s=>t>=s[0]);let p;
+        if(!s)p=px(path[0][2]);
+        else{const b=px(s[3]),u=Math.min(1,(t-s[0])/(s[1]-s[0]));
+          if(u>=1)p=b;
+          else{const a=px(s[2]),dx=b[0]-a[0],dy=b[1]-a[1],L=Math.hypot(dx,dy)||1,ux=dx/L,uy=dy/L,ov=[ux*7-uy*3,uy*7+ux*3];
+            if(u<.75){const v=(u/.75)**.8,e=v**3*(10-15*v+6*v*v),arc=Math.sin(Math.PI*v)*L*.08;p=[a[0]+(dx+ov[0])*e-uy*arc,a[1]+(dy+ov[1])*e+ux*arc]}
+            else{const w=(u-.75)/.25,d=Math.cos(w*Math.PI*3)*(1-w)**1.5;p=[b[0]+ov[0]*d,b[1]+ov[1]*d]}}}
+        cur.style.left=p[0]/W*100+'%';cur.style.top=p[1]/H*100+'%';
         cur.classList.toggle('dn',clk.some(c=>t>=c[0]&&t<c[0]+120));
         clk.forEach(([c,f])=>f&&f.classList.toggle('focus',t>=c&&t<T.get(f)[0]));
       }
     }
-    return {render,end,pkT,t0};
+    return {render,end,pkT,T};
   }
   const hero=mkSap(document.getElementById('sap'),'type');
 
@@ -514,15 +528,43 @@ section{padding:112px 0;border-top:1px solid var(--line)}
   function tick(now){
     const dt=Math.max(0,Math.min(now-last,100));
     if(playing){t+=dt;if(t>=R[n][1]){if(lp.getAttribute('aria-pressed')=='true')t=0;else go((n+1)%R.length)}}
-    demos.forEach(d=>{d[1]=(d[1]+dt)%d[0].end;d[0].render(d[1]);const x=d[0],e=Math.min(Math.max(d[1]-x.t0,0),x.pkT-x.t0);d[2].textContent=(e/1000).toFixed(1)+'s';d[2].classList.toggle('ok',d[1]>=x.pkT)});last=now;R[n][0](t);seek.value=Math.round(t/R[n][1]*1000);requestAnimationFrame(tick);
+    demos.forEach(d=>{d[1]=(d[1]+dt)%d[0].end;d[0].render(d[1])});last=now;R[n][0](t);seek.value=Math.round(t/R[n][1]*1000);requestAnimationFrame(tick);
   }
   seek.addEventListener('input',()=>{t=seek.value/1000*R[n][1];R[n][0](t)});
   pp.addEventListener('click',()=>setPlay(!playing));
   lp.addEventListener('click',()=>lp.setAttribute('aria-pressed',lp.getAttribute('aria-pressed')!='true'));
   slides.forEach(s=>s.addEventListener('click',()=>setPlay(!playing)));
   dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);setPlay(true)}));
-  const demos=[...document.querySelectorAll('.demo')].map(d=>{const c=document.getElementById('sap').cloneNode(true);c.removeAttribute('id');c.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));d.append(c);const m=document.createElement('span');m.className='tm';d.after(m);return [mkSap(c,d.dataset.mode),0,m]});
-  const dro=new ResizeObserver(es=>es.forEach(e=>e.target.firstElementChild.style.setProperty('--k',e.target.clientWidth/616)));document.querySelectorAll('.demo').forEach(d=>dro.observe(d));
+  const V=[['invoice_no','#s-num'],['invoice_date','#s-date'],['vendor_id','#s-id'],['line_1',[1,2]],['amount_1',[1,4]],['line_2',[2,2]],['amount_2',[2,4]],['tax','#s-tax'],['total','#s-tot']];
+  const cl=x=>Math.max(0,Math.min(1,x)),ez=k=>k<.5?2*k*k:1-(-2*k+2)**2/2;
+  function mkDemo(d){
+    const mode=d.dataset.mode,mk=c=>{const e=document.createElement('div');e.className=c;return e},stg=mk('stg'),ivw=mk('ivw'),inv=mk('lf inv'),vars=mk('vars'),tm=document.createElement('span');
+    const pg=document.querySelector('#lf .pg1').cloneNode(true),c=document.getElementById('sap').cloneNode(true),trs=pg.querySelectorAll('tr');
+    const src=V.map(([k,s])=>typeof s=='string'?pg.querySelector(s):trs[s[0]].cells[s[1]]);
+    [c,pg].forEach(x=>{x.removeAttribute('id');x.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'))});
+    inv.append(pg);ivw.append(inv);stg.append(c,ivw);d.append(stg,vars);tm.className='tm';d.parentNode.querySelector('h3').append(tm);
+    const sap=mkSap(c,mode),main=[...c.querySelectorAll('.f[data-v]')].filter(f=>!f.closest('.side'));
+    const ch=V.map(([k],i)=>{const v=src[i].textContent.trim().toUpperCase(),e=document.createElement('span');e.className='v';e.innerHTML='<i>'+k+'</i>'+v;vars.append(e);const fl=e.cloneNode(true);fl.className='vfl';fl.style.display='none';d.append(fl);
+      let g;if(mode=='fast'){g=document.createElement('span');g.className='gh';g.textContent=v;d.append(g)}return {e,g,fl,s:src[i],f:main.find(f=>f.dataset.v==v)}});
+    const S0=650,ST=170,E=3200,pk=E+sap.pkT;
+    function render(t){
+      const a=ez(cl(t/450)),o=ez(cl((t-2550)/380)),s=ez(cl((t-2700)/420)),D=d.getBoundingClientRect(),et=t-E;
+      ivw.style.transform='translateX('+((1-a)*105-o*110)+'%)';c.style.transform='translateX('+(1-s)*105+'%)';
+      sap.render(et);
+      ch.forEach((h,i)=>{
+        const st=S0+i*ST,k=ez(cl((t-st-120)/350)),cx=h.e.offsetLeft+h.e.offsetWidth/2,cy=h.e.offsetTop+h.e.offsetHeight/2;
+        h.s.classList.toggle('gl',t>=st&&t<st+420);const fly=t>=st+120&&k<1;h.e.style.opacity=k>=1?1:0;h.fl.style.display=fly?'':'none';
+        if(fly){const r=h.s.getBoundingClientRect(),sx=r.left+r.width/2-D.left,sy=r.top+r.height/2-D.top;h.fl.style.transform='translate('+(sx+(cx-sx)*k)+'px,'+(sy+(cy-sy)*k)+'px) translate(-50%,-50%) scale('+(.7+.3*k)+')'}
+        const [fa,fb]=sap.T.get(h.f);h.e.classList.toggle('hot',et>=fa-220&&et<fb+250);h.e.classList.toggle('used',et>=fb+250);
+        if(h.g){const on=et>=fa-220&&et<fa;h.g.style.opacity=on?1:0;
+          if(on){const r=h.f.getBoundingClientRect(),u=ez(cl((et-fa+220)/220));h.g.style.left=cx+(r.left+r.width/2-D.left-cx)*u+'px';h.g.style.top=cy+(r.top+r.height/2-D.top-cy)*u+'px'}}
+      });
+      tm.textContent=(cl((t-S0)/(pk-S0))*(pk-S0)/1000).toFixed(1)+'s';tm.classList.toggle('ok',t>=pk);
+    }
+    return {render,end:E+sap.end};
+  }
+  const demos=[...document.querySelectorAll('.demo')].map(d=>[mkDemo(d),0]);
+  const dro=new ResizeObserver(es=>es.forEach(e=>e.target.querySelectorAll('.sap,.lf').forEach(s=>s.style.setProperty('--k',e.target.clientWidth/616))));document.querySelectorAll('.demo').forEach(d=>dro.observe(d));
   go(0);requestAnimationFrame(tick);
 })();
 </script>
