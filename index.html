@@ -78,30 +78,45 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .run .foot b{color:var(--text);font-weight:600}
 
 /* sap invoice */
-.sap{container-type:inline-size;font-size:13px;user-select:none}
-.sap .bar b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sap .tabs{display:flex;align-items:center;gap:4px;padding:12px 16px 0;border-bottom:1px solid var(--line)}
-.sap .tabs span{padding:6px 12px;border-radius:8px 8px 0 0;color:var(--muted)}
-.sap .tabs span.on{background:rgba(124,156,255,.12);color:var(--text)}
-.sap .tabs em{margin-left:auto;font-style:normal;color:var(--muted);white-space:nowrap}
-.sap .tabs em b{display:inline-block;min-width:72px;margin-left:8px;text-align:right;font:500 13px/1 ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums;color:var(--ok);transition:color .3s}
-.sap .tabs em b.off{color:#ff7a8a}
-.sap .form{display:grid;grid-template-columns:88px minmax(0,1fr) 88px minmax(0,1fr);gap:8px 12px;align-items:center;padding:16px}
-.sap label{color:var(--muted);white-space:nowrap}
-.sap .f{display:block;height:28px;padding:0 8px;border:1px solid var(--line2);border-radius:6px;background:#0a0c10;font:500 13px/26px ui-monospace,Consolas,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:border-color .2s,box-shadow .2s}
-.sap .f.typing{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,156,255,.15)}
-.sap .f.typing::after{content:"";display:inline-block;width:1px;height:14px;margin-left:1px;vertical-align:-2px;background:var(--accent)}
+.sapw{position:relative;z-index:1;width:100%;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.08)}
+.sap{width:616px;zoom:var(--k,1);background:#e6ecf2;color:#000;font:12px/1.2 Arial,Helvetica,sans-serif;user-select:none}
+.sap .tb{display:flex;gap:2px;height:30px;align-items:center;padding:0 6px;background:#f7f9fb;border-bottom:1px solid #c6d0da}
+.sap .tb span{display:flex;align-items:center;gap:5px;height:24px;padding:0 7px;border:1px solid transparent;border-radius:3px;white-space:nowrap}
+.sap .tb span:first-child{border-color:#a9b7c6;background:#fff}
+.sap .tb i{width:11px;height:11px;border-radius:2px;background:#3b8bd0}
+.sap .tb .g{background:#5c9e31}.sap .tb .o{background:#e78c07}
+.sap .top{display:flex;align-items:center;gap:8px;padding:10px 10px 6px}
+.sap .top .bal{margin-left:auto;display:flex;align-items:center;gap:6px}
+.sap .lamp{display:flex;gap:2px}.sap .lamp i{width:9px;height:9px;border-radius:50%;border:1px solid #6b7682;background:#fff}
+.sap .lamp.r i:first-child{background:#e3362b}.sap .lamp.g i:last-child{background:#2b9e3b}
+.sap .tabs{display:flex;gap:2px;padding:0 10px}
+.sap .tabs span{padding:4px 12px;border:1px solid #a9b7c6;border-bottom:0;border-radius:4px 4px 0 0;background:#d4dde6}
+.sap .tabs span.on{background:#0a6ed1;border-color:#0a6ed1;color:#fff}
+.sap .body{display:grid;grid-template-columns:392px 1fr;gap:8px;padding:0 10px 8px}
+.sap .pane{background:#eff4f9;border:1px solid #a9b7c6;padding:8px}
+.sap .form{display:grid;grid-template-columns:92px 104px 74px 1fr;gap:4px 6px;align-items:center}
+.sap .form .w{grid-column:2/5}
+.sap label{white-space:nowrap}.sap label.req{color:#0854a0}
+.sap .f{display:block;height:20px;padding:0 4px;border:1px solid #a9b7c6;border-bottom-color:#7f8c99;background:#fff;font:12px/18px Arial,Helvetica,sans-serif;white-space:nowrap;overflow:hidden}
+.sap .ro{border-color:transparent;background:none}
+.sap .f.typing{border-color:#0a6ed1;box-shadow:0 0 0 1px #0a6ed1}
+.sap .f.typing::after{content:"";display:inline-block;width:1px;height:12px;margin-left:1px;vertical-align:-2px;background:#000}
 .sap .num{text-align:right;font-variant-numeric:tabular-nums}
-.sap .items{margin:0 16px 16px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.sap .ir{display:grid;grid-template-columns:72px minmax(0,1fr) 88px 96px;gap:8px;align-items:center;padding:6px 8px}
-.sap .ir+.ir{border-top:1px solid var(--line)}
-.sap .ih{background:var(--bg2);color:var(--muted)}
-.sap .ir .f{height:24px;line-height:22px}
-.sap .foot span{color:var(--ok);opacity:0;transition:opacity .3s}
-.sap .foot span.on{opacity:1}
-@container (max-width:520px){.sap .form{grid-template-columns:88px minmax(0,1fr)}}
-@container (max-width:400px){.sap .cc{display:none}.sap .ir{grid-template-columns:64px minmax(0,1fr) 88px}.sap .tabs span:nth-of-type(n+3){display:none}}
-
+.sap .cb{display:flex;align-items:center;gap:4px;white-space:nowrap}.sap .cb i{width:11px;height:11px;border:1px solid #7f8c99;background:#fff}
+.sap .side h4{font:700 12px/1 Arial,sans-serif;padding:0 0 6px;border-bottom:1px solid #c6d0da;margin-bottom:6px}
+.sap .side .f{margin-bottom:3px;background:none;border-color:transparent}
+.sap .ois{margin:8px 0 6px;height:22px;border:1px solid #c8a200;border-radius:3px;background:#fde68a;display:grid;place-items:center;font-weight:700}
+.sap .items{margin:0 10px;border:1px solid #a9b7c6;background:#fff}
+.sap .items .cap{padding:5px 8px;background:#d4dde6;border-bottom:1px solid #a9b7c6}
+.sap .ir{display:grid;grid-template-columns:22px 70px 1fr 56px 128px 84px;height:22px}
+.sap .ir>*{border-right:1px solid #d5dde5;border-bottom:1px solid #d5dde5;padding:0 4px;line-height:21px;white-space:nowrap;overflow:hidden}
+.sap .ih>*{background:#e8edf2;font-weight:700}
+.sap .ir .f{height:auto;border:0;border-right:1px solid #d5dde5;border-bottom:1px solid #d5dde5;line-height:21px;background:#fff}
+.sap .ir .s{background:#fff5c2}
+.sap .st{display:flex;align-items:center;gap:6px;height:26px;margin-top:8px;padding:0 10px;background:#f7f9fb;border-top:1px solid #c6d0da}
+.sap .st span{opacity:0;transition:opacity .3s;display:flex;align-items:center;gap:6px}
+.sap .st span.on{opacity:1}
+.sap .st i{width:12px;height:12px;border-radius:50%;background:#2b9e3b}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
@@ -154,25 +169,39 @@ section{padding:112px 0;border-top:1px solid var(--line)}
         <a class="btn btn-primary" href="mailto:contact@dylostudio.com">Inquire</a>
       </div>
     </div>
-    <div class="run sap" id="sap" aria-hidden="true">
-      <div class="bar"><i></i><i></i><i></i><b>Park Supplier Invoice<span class="cc">: Company Code 1000</span></b></div>
-      <div class="tabs"><span class="on">Basic data</span><span>Payment</span><span>Details</span><span>Tax</span><em>Bal. <b id="bal">0.00</b></em></div>
-      <div class="form">
-        <label>Supplier</label><span class="f" data-v="100245 Northwind"></span>
-        <label>Reference</label><span class="f" data-v="INV-48213"></span>
-        <label>Invoice date</label><span class="f" data-v="10/21/2026"></span>
-        <label>Posting date</label><span class="f" data-v="10/23/2026"></span>
-        <label>Amount</label><span class="f num" data-v="1,284.50"></span>
-        <label>Currency</label><span class="f" data-v="USD"></span>
-        <label>Tax code</label><span class="f" data-v="I0 Exempt"></span>
-        <label>Text</label><span class="f" data-v="Office supplies, October"></span>
+    <div class="sapw" id="sapw" aria-hidden="true"><div class="sap" id="sap">
+      <div class="tb"><span><i></i>Tree on</span><span><i></i>Company Code</span><span><i class="o"></i>Hold</span><span><i></i>Simulate</span><span><i class="g"></i>Park</span><span><i class="o"></i>Editing options</span></div>
+      <div class="top"><label>Transactn</label><span class="f" style="width:130px">Invoice</span><div class="bal"><label>Bal.</label><span class="f num" id="bal" style="width:96px">0.00</span><span class="lamp g" id="lamp"><i></i><i></i><i></i></span></div></div>
+      <div class="tabs"><span class="on">Basic data</span><span>Payment</span><span>Details</span><span>Tax</span><span>Notes</span></div>
+      <div class="body">
+        <div class="pane form">
+          <label class="req">Vendor</label><span class="f" data-v="100245"></span><label>SGL Ind</label><span class="f" style="width:20px"></span>
+          <label class="req">Invoice date</label><span class="f" data-v="10/21/2026"></span><label>Reference</label><span class="f" data-v="INV-48213"></span>
+          <label>Posting Date</label><span class="f" data-v="10/23/2026"></span><span></span><span></span>
+          <label class="req">Amount</label><span class="f num" data-v="1,284.50"></span><span class="f" style="width:44px">USD</span><span class="cb"><i></i>Calculate tax</span>
+          <label>Tax amount</label><span class="f"></span><span class="f w" style="grid-column:3/5"></span>
+          <label>Text</label><span class="f w" data-v="Office supplies, October"></span>
+          <label>Paymt terms</label><span class="f ro w" data-v="Net 30 days"></span>
+          <label>Company Code</label><span class="f ro w" data-v="1000 Northwind Corp"></span>
+        </div>
+        <div class="pane side">
+          <h4>Vendor</h4>
+          <span class="f" data-v="Northwind Office Supply"></span>
+          <span class="f" data-v="1200 Market Street"></span>
+          <span class="f" data-v="San Diego CA 92101"></span>
+          <div class="ois">OIs</div>
+          <span>Bank data: not available</span>
+        </div>
       </div>
       <div class="items">
-        <div class="ir ih"><span>G/L acct</span><span>Text</span><span class="cc">Cost center</span><span class="num">Amount</span></div>
-        <div class="ir"><span class="f" data-v="610100"></span><span class="f" data-v="Toner"></span><span class="f cc" data-v="4100"></span><span class="f num" data-v="1,184.50"></span></div>
-        <div class="ir"><span class="f" data-v="610200"></span><span class="f" data-v="Delivery"></span><span class="f cc" data-v="4100"></span><span class="f num" data-v="100.00"></span></div>
+        <div class="cap" id="icap">0 Items ( No entry variant selected )</div>
+        <div class="ir ih"><span>S</span><span>G/L acct</span><span>Short Text</span><span>D/C</span><span class="num">Amount in doc.curr.</span><span>Cost center</span></div>
+        <div class="ir"><span class="s"></span><span class="f" data-v="610100"></span><span class="f" data-v="Toner and paper"></span><span class="f" data-v="Debit"></span><span class="f num" data-v="1,184.50"></span><span class="f" data-v="4100"></span></div>
+        <div class="ir"><span class="s"></span><span class="f" data-v="610200"></span><span class="f" data-v="Delivery"></span><span class="f" data-v="Debit"></span><span class="f num" data-v="100.00"></span><span class="f" data-v="4100"></span></div>
+        <div class="ir"><span class="s"></span><span></span><span></span><span></span><span></span><span></span></div>
       </div>
-      <div class="foot"><span id="sapst"></span><b>Autonomous</b></div>
+      <div class="st"><span id="sapst"><i></i>Document 5105600123 1000 was parked</span></div>
+    </div></div>
     </div>
   </div>
 </header>
@@ -271,25 +300,31 @@ section{padding:112px 0;border-top:1px solid var(--line)}
   const run=new IntersectionObserver(es=>{if(es[0].isIntersecting){li.forEach((l,i)=>setTimeout(()=>l.classList.add('on'),still?0:250+i*450));run.disconnect()}},{threshold:.4});
   run.observe(document.getElementById('steps'));
 
-  const fs=[...document.querySelectorAll('#sap .f')],bal=document.getElementById('bal'),st=document.getElementById('sapst');
+  const sw=document.getElementById('sapw'),sp=document.getElementById('sap');
+  new ResizeObserver(()=>sp.style.setProperty('--k',sw.clientWidth/616)).observe(sw);
+  const all=[...document.querySelectorAll('#sap .f[data-v]')],side=[...document.querySelectorAll('#sap .side .f')];
+  const fs=[all[0],...side,...all.slice(1).filter(f=>!side.includes(f))];
+  const bal=document.getElementById('bal'),lamp=document.getElementById('lamp'),st=document.getElementById('sapst'),cap=document.getElementById('icap');
+  const setBal=v=>{bal.textContent=v;lamp.className='lamp '+(v=='0.00'?'g':'r')};
   const wait=ms=>new Promise(r=>setTimeout(r,ms));
   async function fill(){
     for(;;){
-      fs.forEach(f=>f.textContent='');st.classList.remove('on');bal.classList.remove('off');bal.textContent='0.00';
+      fs.forEach(f=>f.textContent='');st.classList.remove('on');setBal('0.00');cap.textContent='0 Items ( No entry variant selected )';
       await wait(700);
       for(const f of fs){
         const v=f.dataset.v;f.classList.add('typing');
-        for(let i=1;i<=v.length;i++){f.textContent=v.slice(0,i);await wait(28)}
+        for(let i=1;i<=v.length;i++){f.textContent=v.slice(0,i);await wait(side.includes(f)?12:28)}
         f.classList.remove('typing');
-        if(v=='1,284.50'){bal.textContent='1,284.50';bal.classList.add('off')}
-        if(f==fs[fs.length-1]){bal.textContent='0.00';bal.classList.remove('off')}
-        await wait(140);
+        if(v=='1,284.50')setBal('1,284.50');
+        if(v=='1,184.50'){setBal('100.00');cap.textContent='1 Items ( No entry variant selected )'}
+        if(f==fs[fs.length-1]){setBal('0.00');cap.textContent='2 Items ( No entry variant selected )'}
+        await wait(side.includes(f)?40:140);
       }
-      st.textContent='Document 5105600123 parked';st.classList.add('on');
+      st.classList.add('on');
       await wait(3800);
     }
   }
-  if(still){fs.forEach(f=>f.textContent=f.dataset.v);st.textContent='Document 5105600123 parked';st.classList.add('on')}else fill();
+  if(still){fs.forEach(f=>f.textContent=f.dataset.v);cap.textContent='2 Items ( No entry variant selected )';st.classList.add('on')}else fill();
 })();
 </script>
 </body>
