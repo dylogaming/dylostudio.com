@@ -225,9 +225,11 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .step::before{counter-increment:s;content:"0" counter(s);display:block;font:700 14px/1 "Space Grotesk",sans-serif;color:var(--accent2);margin-bottom:20px;letter-spacing:.1em}
 .step h3{font-size:20px;margin-bottom:8px}
 .step p{color:var(--muted);font-size:15px}
-.step{min-width:0}.step .demo{margin-top:20px;border-radius:8px;overflow:hidden}
+.step{min-width:0}.step .demo{position:relative;margin-top:20px;border-radius:8px;overflow:hidden}
 .sap .cur{position:absolute;width:14px;height:20px;margin:-2px 0 0 -2px;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 20'%3E%3Cpath d='M1 1v15l4-3.5 2.6 6 2.6-1.1-2.6-5.9H13z' fill='%23fff' stroke='%23000' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E") 0 0/14px 20px no-repeat;transition:transform .08s}
 .sap .cur.dn{transform:scale(.85)}
+.step .tm{display:table;margin:14px auto 0;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font:600 14px/1.4 "Space Grotesk",sans-serif;font-variant-numeric:tabular-nums;transition:color .3s}
+.step .tm.ok{color:var(--accent2)}
 .sap .f.focus{border-color:#346eb5;box-shadow:0 0 0 1px #346eb5}
 
 /* cta band */
@@ -458,15 +460,15 @@ section{padding:112px 0;border-top:1px solid var(--line)}
     const fs=$$('.f[data-v]'),vf=$$('.side .f[data-v]'),bal=$('.bal .f'),lamp=$('.lamp'),st=$('.st span'),cap=$('.items .cap'),park=$('.pk'),rows=$$('.ir');
     const mt=[bal,...fs.filter(f=>['1,284.50','1,184.50','100.00'].includes(f.dataset.v))];
     const main=order(fs.filter(f=>!vf.includes(f))),top=main.filter(f=>!f.closest('.ir')),bot=main.filter(f=>f.closest('.ir'));
-    const T=new Map(),cps=mode=='type'?16:0;let vfT,mtT=1/0,hvT,dnT,pkT,end,cur,path=[],clk=[];
+    const T=new Map(),cps=mode=='type'?16:0;let t0,vfT,mtT=1/0,hvT,dnT,pkT,end,cur,path=[],clk=[];
     if(mode=='type'){
-      let q=900;
+      let q=900;t0=900;
       for(const f of main){const e=q+f.dataset.v.length*16;T.set(f,[q,e]);q=e;if(f.dataset.v=='100245'){vfT=q+250;q+=250}q+=60}
       mtT=q+700;hvT=mtT+1600;dnT=hvT+700;pkT=dnT+220;end=pkT+3000;
     }else if(mode=='fast'){
-      top.forEach(f=>T.set(f,[250,250]));vfT=250;bot.forEach(f=>T.set(f,[500,500]));hvT=750;dnT=900;pkT=1050;end=1800;
+      top.forEach(f=>T.set(f,[250,250]));vfT=250;bot.forEach(f=>T.set(f,[500,500]));t0=250;hvT=750;dnT=900;pkT=1050;end=1800;
     }else{
-      top.forEach(f=>T.set(f,[1000,1000]));vfT=1250;bot.forEach(f=>T.set(f,[2000,2000]));hvT=2800;dnT=2950;pkT=3100;end=5200;
+      top.forEach(f=>T.set(f,[1000,1000]));t0=300;vfT=1250;bot.forEach(f=>T.set(f,[2000,2000]));hvT=2800;dnT=2950;pkT=3100;end=5200;
       cur=document.createElement('i');cur.className='cur';root.append(cur);
       path=[[0,null],[300,null],[900,top[0]],[1300,top[0]],[1900,bot[0]],[2300,bot[0]],[2800,park]];clk=[[900,top[0]],[1900,bot[0]],[2800,null]];
     }
@@ -490,7 +492,7 @@ section{padding:112px 0;border-top:1px solid var(--line)}
         clk.forEach(([c,f])=>f&&f.classList.toggle('focus',t>=c&&t<T.get(f)[0]));
       }
     }
-    return {render,end,pkT};
+    return {render,end,pkT,t0};
   }
   const hero=mkSap(document.getElementById('sap'),'type');
 
@@ -512,14 +514,14 @@ section{padding:112px 0;border-top:1px solid var(--line)}
   function tick(now){
     const dt=Math.max(0,Math.min(now-last,100));
     if(playing){t+=dt;if(t>=R[n][1]){if(lp.getAttribute('aria-pressed')=='true')t=0;else go((n+1)%R.length)}}
-    demos.forEach(d=>{d[1]=(d[1]+dt)%d[0].end;d[0].render(d[1])});last=now;R[n][0](t);seek.value=Math.round(t/R[n][1]*1000);requestAnimationFrame(tick);
+    demos.forEach(d=>{d[1]=(d[1]+dt)%d[0].end;d[0].render(d[1]);const x=d[0],e=Math.min(Math.max(d[1]-x.t0,0),x.pkT-x.t0);d[2].textContent=(e/1000).toFixed(1)+'s';d[2].classList.toggle('ok',d[1]>=x.pkT)});last=now;R[n][0](t);seek.value=Math.round(t/R[n][1]*1000);requestAnimationFrame(tick);
   }
   seek.addEventListener('input',()=>{t=seek.value/1000*R[n][1];R[n][0](t)});
   pp.addEventListener('click',()=>setPlay(!playing));
   lp.addEventListener('click',()=>lp.setAttribute('aria-pressed',lp.getAttribute('aria-pressed')!='true'));
   slides.forEach(s=>s.addEventListener('click',()=>setPlay(!playing)));
   dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);setPlay(true)}));
-  const demos=[...document.querySelectorAll('.demo')].map(d=>{const c=document.getElementById('sap').cloneNode(true);c.removeAttribute('id');c.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));d.append(c);return [mkSap(c,d.dataset.mode),0]});
+  const demos=[...document.querySelectorAll('.demo')].map(d=>{const c=document.getElementById('sap').cloneNode(true);c.removeAttribute('id');c.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));d.append(c);const m=document.createElement('span');m.className='tm';d.after(m);return [mkSap(c,d.dataset.mode),0,m]});
   const dro=new ResizeObserver(es=>es.forEach(e=>e.target.firstElementChild.style.setProperty('--k',e.target.clientWidth/616)));document.querySelectorAll('.demo').forEach(d=>dro.observe(d));
   go(0);requestAnimationFrame(tick);
 })();
