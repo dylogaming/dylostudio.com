@@ -47,8 +47,9 @@ a{color:inherit;text-decoration:none}
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
 #field{position:absolute;inset:0;width:100%;height:100%}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,var(--bg),transparent 12%,transparent 85%,var(--bg));pointer-events:none}
-.hero .inner::before{content:"";position:absolute;inset:-25% -30%;z-index:-1;background:radial-gradient(closest-side,rgba(7,8,11,.9),rgba(7,8,11,.6) 45%,rgba(7,8,11,0));pointer-events:none}
-.hero .inner{position:relative;z-index:1;padding:120px 32px 96px}
+.hero .copy{position:relative;z-index:0}
+.hero .copy::before{content:"";position:absolute;inset:-25% -30%;z-index:-1;background:radial-gradient(closest-side,rgba(7,8,11,.9),rgba(7,8,11,.6) 45%,rgba(7,8,11,0));pointer-events:none}
+.hero .inner{position:relative;z-index:1;width:100%;padding:120px 32px 96px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
 .hero h1{font-size:clamp(40px,6vw,72px);margin-bottom:20px}
 .hero h1 span{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{font-size:clamp(17px,2vw,20px);color:var(--muted);margin-bottom:32px}
@@ -76,6 +77,31 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .run .foot{display:flex;justify-content:space-between;padding:14px 20px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
 .run .foot b{color:var(--text);font-weight:600}
 
+/* sap invoice */
+.sap{container-type:inline-size;font-size:13px;user-select:none}
+.sap .bar b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sap .tabs{display:flex;align-items:center;gap:4px;padding:12px 16px 0;border-bottom:1px solid var(--line)}
+.sap .tabs span{padding:6px 12px;border-radius:8px 8px 0 0;color:var(--muted)}
+.sap .tabs span.on{background:rgba(124,156,255,.12);color:var(--text)}
+.sap .tabs em{margin-left:auto;font-style:normal;color:var(--muted);white-space:nowrap}
+.sap .tabs em b{display:inline-block;min-width:72px;margin-left:8px;text-align:right;font:500 13px/1 ui-monospace,Consolas,monospace;font-variant-numeric:tabular-nums;color:var(--ok);transition:color .3s}
+.sap .tabs em b.off{color:#ff7a8a}
+.sap .form{display:grid;grid-template-columns:88px minmax(0,1fr) 88px minmax(0,1fr);gap:8px 12px;align-items:center;padding:16px}
+.sap label{color:var(--muted);white-space:nowrap}
+.sap .f{display:block;height:28px;padding:0 8px;border:1px solid var(--line2);border-radius:6px;background:#0a0c10;font:500 13px/26px ui-monospace,Consolas,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:border-color .2s,box-shadow .2s}
+.sap .f.typing{border-color:var(--accent);box-shadow:0 0 0 3px rgba(124,156,255,.15)}
+.sap .f.typing::after{content:"";display:inline-block;width:1px;height:14px;margin-left:1px;vertical-align:-2px;background:var(--accent)}
+.sap .num{text-align:right;font-variant-numeric:tabular-nums}
+.sap .items{margin:0 16px 16px;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.sap .ir{display:grid;grid-template-columns:72px minmax(0,1fr) 88px 96px;gap:8px;align-items:center;padding:6px 8px}
+.sap .ir+.ir{border-top:1px solid var(--line)}
+.sap .ih{background:var(--bg2);color:var(--muted)}
+.sap .ir .f{height:24px;line-height:22px}
+.sap .foot span{color:var(--ok);opacity:0;transition:opacity .3s}
+.sap .foot span.on{opacity:1}
+@container (max-width:520px){.sap .form{grid-template-columns:88px minmax(0,1fr)}}
+@container (max-width:400px){.sap .cc{display:none}.sap .ir{grid-template-columns:64px minmax(0,1fr) 88px}.sap .tabs span:nth-of-type(n+3){display:none}}
+
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
@@ -95,7 +121,7 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 
-@media (max-width:1000px){.split{grid-template-columns:1fr}}
+@media (max-width:1000px){.split,.hero .inner{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:640px){
   .wrap,.nav,.hero .inner{padding-left:16px;padding-right:16px}
   .nav .links a:not(.btn){display:none}
@@ -121,10 +147,32 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 <header class="hero" id="top">
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="inner">
-    <h1>Automation <span>services</span></h1>
-    <p>SAP, Laserfiche, and more.</p>
-    <div class="cta">
-      <a class="btn btn-primary" href="mailto:contact@dylostudio.com">Inquire</a>
+    <div class="copy">
+      <h1>Automation <span>services</span></h1>
+      <p>SAP, Laserfiche, and more</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="mailto:contact@dylostudio.com">Inquire</a>
+      </div>
+    </div>
+    <div class="run sap" id="sap" aria-hidden="true">
+      <div class="bar"><i></i><i></i><i></i><b>Park Supplier Invoice<span class="cc">: Company Code 1000</span></b></div>
+      <div class="tabs"><span class="on">Basic data</span><span>Payment</span><span>Details</span><span>Tax</span><em>Bal. <b id="bal">0.00</b></em></div>
+      <div class="form">
+        <label>Supplier</label><span class="f" data-v="100245 Northwind"></span>
+        <label>Reference</label><span class="f" data-v="INV-48213"></span>
+        <label>Invoice date</label><span class="f" data-v="10/21/2026"></span>
+        <label>Posting date</label><span class="f" data-v="10/23/2026"></span>
+        <label>Amount</label><span class="f num" data-v="1,284.50"></span>
+        <label>Currency</label><span class="f" data-v="USD"></span>
+        <label>Tax code</label><span class="f" data-v="I0 Exempt"></span>
+        <label>Text</label><span class="f" data-v="Office supplies, October"></span>
+      </div>
+      <div class="items">
+        <div class="ir ih"><span>G/L acct</span><span>Text</span><span class="cc">Cost center</span><span class="num">Amount</span></div>
+        <div class="ir"><span class="f" data-v="610100"></span><span class="f" data-v="Toner"></span><span class="f cc" data-v="4100"></span><span class="f num" data-v="1,184.50"></span></div>
+        <div class="ir"><span class="f" data-v="610200"></span><span class="f" data-v="Delivery"></span><span class="f cc" data-v="4100"></span><span class="f num" data-v="100.00"></span></div>
+      </div>
+      <div class="foot"><span id="sapst"></span><b>Autonomous</b></div>
     </div>
   </div>
 </header>
@@ -189,7 +237,7 @@ section{padding:112px 0;border-top:1px solid var(--line)}
     c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
     pts=[];const gap=W<640?16:13;
     for(let i=0;i<W/gap+2;i++)for(let j=0;j<22;j++)pts.push([i*gap,j]);
-    const hr=c.getBoundingClientRect(),r=[...document.querySelectorAll('.hero .inner>*')].map(e=>e.getBoundingClientRect());
+    const hr=c.getBoundingClientRect(),r=[...document.querySelectorAll('.hero .copy>*')].map(e=>e.getBoundingClientRect());
     tb=[Math.min(...r.map(b=>b.left))-hr.left,Math.min(...r.map(b=>b.top))-hr.top,Math.max(...r.map(b=>b.right))-hr.left,Math.max(...r.map(b=>b.bottom))-hr.top];
   }
   let tb=[0,0,0,0];
@@ -222,6 +270,26 @@ section{padding:112px 0;border-top:1px solid var(--line)}
   const li=[...document.querySelectorAll('#steps li')];
   const run=new IntersectionObserver(es=>{if(es[0].isIntersecting){li.forEach((l,i)=>setTimeout(()=>l.classList.add('on'),still?0:250+i*450));run.disconnect()}},{threshold:.4});
   run.observe(document.getElementById('steps'));
+
+  const fs=[...document.querySelectorAll('#sap .f')],bal=document.getElementById('bal'),st=document.getElementById('sapst');
+  const wait=ms=>new Promise(r=>setTimeout(r,ms));
+  async function fill(){
+    for(;;){
+      fs.forEach(f=>f.textContent='');st.classList.remove('on');bal.classList.remove('off');bal.textContent='0.00';
+      await wait(700);
+      for(const f of fs){
+        const v=f.dataset.v;f.classList.add('typing');
+        for(let i=1;i<=v.length;i++){f.textContent=v.slice(0,i);await wait(28)}
+        f.classList.remove('typing');
+        if(v=='1,284.50'){bal.textContent='1,284.50';bal.classList.add('off')}
+        if(f==fs[fs.length-1]){bal.textContent='0.00';bal.classList.remove('off')}
+        await wait(140);
+      }
+      st.textContent='Document 5105600123 parked';st.classList.add('on');
+      await wait(3800);
+    }
+  }
+  if(still){fs.forEach(f=>f.textContent=f.dataset.v);st.textContent='Document 5105600123 parked';st.classList.add('on')}else fill();
 })();
 </script>
 </body>

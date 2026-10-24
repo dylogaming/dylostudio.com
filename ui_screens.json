@@ -1,1 +1,6 @@
-[{"name":"Home","do":"window.scrollTo({top:0,behavior:\"instant\"})"}]
+[
+  {"name": "Hero", "do": "scrollTo(0,0)"},
+  {"name": "Services", "do": "document.getElementById('services').scrollIntoView();document.querySelectorAll('.reveal,#steps li').forEach(e=>e.classList.add('in','on'))"},
+  {"name": "Process", "do": "document.getElementById('process').scrollIntoView();document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'))"},
+  {"name": "Contact", "do": "document.querySelector('.band').scrollIntoView();document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'))"}
+]
