@@ -302,8 +302,8 @@ section{padding:112px 0;border-top:1px solid var(--line)}
 
   const sw=document.getElementById('sapw'),sp=document.getElementById('sap');
   new ResizeObserver(()=>sp.style.setProperty('--k',sw.clientWidth/616)).observe(sw);
-  const all=[...document.querySelectorAll('#sap .f[data-v]')],side=[...document.querySelectorAll('#sap .side .f')];
-  const fs=[all[0],...side,...all.slice(1).filter(f=>!side.includes(f))];
+  const fs=[...document.querySelectorAll('#sap .f[data-v]')];
+  const order=()=>fs.map(f=>[f,f.getBoundingClientRect()]).sort((a,b)=>Math.round(a[1].top-b[1].top)||a[1].left-b[1].left).map(x=>x[0]);
   const bal=document.getElementById('bal'),lamp=document.getElementById('lamp'),st=document.getElementById('sapst'),cap=document.getElementById('icap');
   const setBal=v=>{bal.textContent=v;lamp.className='lamp '+(v=='0.00'?'g':'r')};
   const wait=ms=>new Promise(r=>setTimeout(r,ms));
@@ -311,14 +311,14 @@ section{padding:112px 0;border-top:1px solid var(--line)}
     for(;;){
       fs.forEach(f=>f.textContent='');st.classList.remove('on');setBal('0.00');cap.textContent='0 Items ( No entry variant selected )';
       await wait(700);
-      for(const f of fs){
+      for(const f of order()){
         const v=f.dataset.v;f.classList.add('typing');
-        for(let i=1;i<=v.length;i++){f.textContent=v.slice(0,i);await wait(side.includes(f)?12:28)}
+        for(let i=1;i<=v.length;i++){f.textContent=v.slice(0,i);await wait(16)}
         f.classList.remove('typing');
         if(v=='1,284.50')setBal('1,284.50');
         if(v=='1,184.50'){setBal('100.00');cap.textContent='1 Items ( No entry variant selected )'}
-        if(f==fs[fs.length-1]){setBal('0.00');cap.textContent='2 Items ( No entry variant selected )'}
-        await wait(side.includes(f)?40:140);
+        if(v=='100.00'){setBal('0.00');cap.textContent='2 Items ( No entry variant selected )'}
+        await wait(60);
       }
       st.classList.add('on');
       await wait(3800);
