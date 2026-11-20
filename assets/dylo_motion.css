@@ -1,0 +1,31 @@
+/* Shared motion for every DYLO site and app. Uses the template's --ease when defined. */
+:root{--m-ease:var(--ease,cubic-bezier(.2,.9,.25,1));--m-fast:.12s;--m-med:.2s;--m-slow:.34s}
+html{scroll-behavior:smooth}
+[id]{scroll-margin-top:var(--header-h,64px)}
+
+/* press, release, hover light-up */
+button,.btn,[role=button],a.card,.card[tabindex]{transition:transform var(--m-fast) var(--m-ease),background-color var(--m-med) var(--m-ease),color var(--m-med) var(--m-ease),box-shadow var(--m-med) var(--m-ease),filter var(--m-med) var(--m-ease);-webkit-tap-highlight-color:transparent}
+button:active:not(:disabled),.btn:active,[role=button]:active,a.card:active{transform:scale(.95)}
+@media (hover:hover){
+  button:hover:not(:disabled),.btn:hover,[role=button]:hover{filter:brightness(1.15)}
+  a.card:hover,.card[tabindex]:hover{filter:brightness(1.08)}
+}
+:focus-visible{outline:2px solid var(--accent,currentColor);outline-offset:2px}
+
+/* panels, sheets, drawers, dialogs: add .m-panel (+ .m-left/.m-right/.m-bottom), toggle .open */
+.m-panel{touch-action:pan-y;transition:transform .34s var(--m-ease),opacity var(--m-med) var(--m-ease),visibility 0s linear var(--m-slow);opacity:0;visibility:hidden;transform:scale(.96)}
+.m-panel.m-left{transform:translateX(-100%)}.m-panel.m-right{transform:translateX(100%)}.m-panel.m-bottom{transform:translateY(100%);opacity:1}
+.m-panel.m-left,.m-panel.m-right{opacity:1}
+/* popups and menus pop from .96 and rise 6px, as DYLO Video's menus do */
+.m-panel:not(.m-left,.m-right,.m-bottom){transform:scale(.96) translateY(6px)}
+.m-panel:not(.open){transition-duration:.2s;transition-timing-function:ease-in}
+.m-panel.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.m-scrim{position:fixed;inset:0;background:rgb(0 0 0/.5);opacity:0;visibility:hidden;transition:opacity var(--m-med) var(--m-ease),visibility 0s linear var(--m-med)}
+.m-scrim.open{opacity:1;visibility:visible;transition-delay:0s}
+.m-noanim,.m-noanim *{transition:none!important}
+
+/* view and page changes */
+::view-transition-old(root),::view-transition-new(root){animation-duration:.2s;animation-timing-function:cubic-bezier(.2,.9,.25,1)}
+@view-transition{navigation:auto}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}}
