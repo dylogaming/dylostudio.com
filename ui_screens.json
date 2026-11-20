@@ -1,6 +1,27 @@
 [
-  {"name": "Hero", "do": "scrollTo(0,0)"},
-  {"name": "Services", "do": "document.getElementById('services').scrollIntoView();document.querySelectorAll('.reveal,#steps li').forEach(e=>e.classList.add('in','on'))"},
-  {"name": "Process", "do": "document.getElementById('process').scrollIntoView();document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'))"},
-  {"name": "Contact", "do": "document.querySelector('.band').scrollIntoView();document.querySelectorAll('.reveal').forEach(e=>e.classList.add('in'))"}
+ {
+  "name": "Hero",
+  "do": "document.querySelector('main').scrollTop=0",
+  "settle_ms": 2500
+ },
+ {
+  "name": "Capabilities",
+  "do": "const m=document.querySelector('main');m.scrollTop=document.querySelector('#capabilities').offsetTop-m.offsetTop+16;for(let i=0;i<6;i++){const t=m.getBoundingClientRect().top;const c=[...m.querySelectorAll('.head,.cap,.item,.facts,.band,footer,.hero>div')].find(e=>{const r=e.getBoundingClientRect();return r.top<t-1&&r.bottom>t+1});if(!c)break;m.scrollTop-=t-c.getBoundingClientRect().top+16}",
+  "settle_ms": 2500
+ },
+ {
+  "name": "Work",
+  "do": "const m=document.querySelector('main');m.scrollTop=document.querySelector('#work').offsetTop-m.offsetTop+16;for(let i=0;i<6;i++){const t=m.getBoundingClientRect().top;const c=[...m.querySelectorAll('.head,.cap,.item,.facts,.band,footer,.hero>div')].find(e=>{const r=e.getBoundingClientRect();return r.top<t-1&&r.bottom>t+1});if(!c)break;m.scrollTop-=t-c.getBoundingClientRect().top+16}",
+  "settle_ms": 2500
+ },
+ {
+  "name": "Company",
+  "do": "const m=document.querySelector('main');m.scrollTop=document.querySelector('#company').offsetTop-m.offsetTop+16;for(let i=0;i<6;i++){const t=m.getBoundingClientRect().top;const c=[...m.querySelectorAll('.head,.cap,.item,.facts,.band,footer,.hero>div')].find(e=>{const r=e.getBoundingClientRect();return r.top<t-1&&r.bottom>t+1});if(!c)break;m.scrollTop-=t-c.getBoundingClientRect().top+16}",
+  "settle_ms": 2500
+ },
+ {
+  "name": "Contact",
+  "do": "const m=document.querySelector('main');m.scrollTop=document.querySelector('#contact').offsetTop-m.offsetTop+16;for(let i=0;i<6;i++){const t=m.getBoundingClientRect().top;const c=[...m.querySelectorAll('.head,.cap,.item,.facts,.band,footer,.hero>div')].find(e=>{const r=e.getBoundingClientRect();return r.top<t-1&&r.bottom>t+1});if(!c)break;m.scrollTop-=t-c.getBoundingClientRect().top+16}",
+  "settle_ms": 2500
+ }
 ]
